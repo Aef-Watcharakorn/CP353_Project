@@ -1,0 +1,5 @@
+{% extends 'base_layout.html' %} {% block body %} {% for dev in developer %}
+<div>
+    {{dev.Name}} {{dev.Std_id}}
+</div>
+<img src="{{dev.Picture}}"> {% endfor %} {% endblock %}

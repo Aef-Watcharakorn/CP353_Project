@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{{title}}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/mdb.min.css') }}" />
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.min.css') }}" />
+    <style type="text/css ">
+        html,
+        body,
+        header,
+        .carousel {
+            height: 60vh;
+        }
+        
+        @media (max-width: 740px) {
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+        
+        @media (min-width: 800px) and (max-width: 850px) {
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+        
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1c2331 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% include './includes/_navbar.html' %} {% include './includes/_carousel.html' %}
+
+    <div>{% block body %}{% endblock %}</div>
+
+    {% include './includes/_footer.html' %}
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript " src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript " src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript " src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript " src="{{ url_for('static',filename='js/mdb.min.js') }}"></script>
+    <!-- Initializations -->
+    <script type="text/javascript ">
+        // Animations initialization
+        new WOW().init();
+    </script>
+</body>
+
+</html>
