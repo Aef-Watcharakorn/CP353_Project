@@ -53,6 +53,11 @@ def stock():
     ])
     return render_template("stock.html", title=title)
 
+@main.route("/profile")
+def profile():
+    title = "Profile Company"
+    return render_template("profile.html", title=title)
+
 @main.route("/aboutus")
 def about():
     title = "About us"
