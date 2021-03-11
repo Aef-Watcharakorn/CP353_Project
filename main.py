@@ -17,6 +17,9 @@ main = Blueprint('main', __name__)
 FINNHUB_API_KEY = os.getenv('FINNHUB_API_KEY')
 OPEN_FINNHUB_NEWS_URL = "https://finnhub.io/api/v1/news?category={0}&token={1}"
 OPEN_FINNHUB_RATE_URL = "https://finnhub.io/api/v1/forex/rates?base={0}&token={1}"
+OPEN_FINNHUB_PROFILE_URL = "https://finnhub.io/api/v1/stock/profile2?symbol={0}&token={1}"
+OPEN_FINNHUB_SYMBOL_URL = "https://finnhub.io/api/v1/search?q={0}&token={1}"
+
 API_KEY = 'c0sit9n48v6tv6b8fm70'
 
 
@@ -56,7 +59,13 @@ def stock():
 @main.route("/profile")
 def profile():
     title = "Profile Company"
-    return render_template("profile.html", title=title)
+    comp = request.args.get('company')
+    if not comp:
+        comp = 'AAPL'
+    company = get_profile(comp, API_KEY)
+    symbol = get_symbol(comp, API_KEY)
+    return render_template("profile.html", title=title, comp=comp, company=company, symbol=symbol)
+
 
 @main.route("/aboutus")
 def about():
@@ -88,4 +97,49 @@ def get_rate(rate, API_KEY):
             'value': value,
             'alldata':alldata
             }
+    return ret
+
+def get_profile(company, API_KEY):
+    query = quote(company)
+
+    urlProfile = OPEN_FINNHUB_PROFILE_URL.format(query, API_KEY)
+
+    dataProfile = urlopen(urlProfile).read()
+    parsedProfile = json.loads(dataProfile)
+
+    #PROFILE DATA
+    profile_name = parsedProfile['name']
+    profile_marketCapitalization = parsedProfile['marketCapitalization']
+    profile_shareOutstanding = parsedProfile['shareOutstanding']
+    profile_currency = parsedProfile['currency']
+    profile_logo = parsedProfile['logo']
+    profile_weburl = parsedProfile['weburl']
+
+    profile = {'name' : profile_name,
+                'market' : profile_marketCapitalization,
+                'share' : profile_shareOutstanding,
+                'currency' : profile_currency,
+                'logo' : profile_logo,
+                'web' : profile_weburl
+                }
+
+
+
+    return profile
+
+def get_symbol(symbol, API_KEY):
+    query = quote(symbol)
+    urlSymbol = OPEN_FINNHUB_SYMBOL_URL.format(query, API_KEY)
+    dataSymbol = urlopen(urlSymbol).read()
+    parsedSymbol = json.loads(dataSymbol)
+
+    #SYMBOL DATA
+    symbol = []
+    count = parsedSymbol['count']
+    for i in range(count):
+        symbol = parsedSymbol['result'][i]['symbol']
+
+    ret = {'count' : count,
+            'symbol' : symbol}
+
     return ret

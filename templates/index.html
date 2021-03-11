@@ -3,7 +3,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h3> {{rate.base}} </h3>
+            <h3> Currency of Today </h3>
+            <h4> {{rate.base}} </h4>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -12,10 +13,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {%for i in rate%}
+                    {% for key, value in rate.value.items() %} 
                     <tr>
-                        <th scope="row">{{rate.i}}</th>
-                        <td>Cell</td>
+                        <td scope="row">{{key}}</td>
+                        <td scope="row">{{value}}</td>
 
                     </tr>
                     {% endfor %}
