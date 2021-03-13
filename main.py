@@ -11,6 +11,7 @@ from flask import request
 from urllib.parse import quote
 from urllib.request import urlopen
 import websocket
+import requests
 
 
 main = Blueprint('main', __name__)
@@ -112,18 +113,12 @@ def profile():
         return render_template("profile.html", title=title, comp=comp, company=company, symbol=symbol)
 
 def get_profile(company, API_KEY):
-    r = requests.get('https://finnhub.io/api/v1/search?q=BMW&token=c0sit9n48v6tv6b8fm70').json()
-    listt = []
-    for i in range(len(r['result'])):
-        symbol = r['result'][i]['symbol']
-        listt.append({"symbol":symbol})
-    listprofile = list()
-    for x in range(len(listt)):
-        word = listt[x].get("symbol")
-        profile = "https://finnhub.io/api/v1/stock/profile2?symbol={0}&token=c0sit9n48v6tv6b8fm70".format(word)
-        url = requests.request("GET",profile).json()
-        listprofile.append(url)
-    return listprofile
+    query = quote(company)
+    urlProfile = OPEN_FINNHUB_PROFILE_URL.format(query, API_KEY)
+
+    dataProfile = urlopen(urlProfile).read()
+    parsedProfile = json.loads(dataProfile)
+    return parsedProfile
 
 def get_symbol(symbol, API_KEY):
     query = quote(symbol)
