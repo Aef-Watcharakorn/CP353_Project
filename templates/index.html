@@ -1,27 +1,35 @@
 {% extends 'base_layout.html' %} {% block body %}
-
+<section class="mt-5 wow fadeIn"></section>
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h3> Currency of Today </h3>
-            <h4> {{rate.base}} </h4>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Exchange</th>
-                        <th scope="col">Units</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for key, value in rate.value.items() %} 
-                    <tr>
-                        <td scope="row">{{key}}</td>
-                        <td scope="row">{{value}}</td>
+            <div class="card">
+                <h2 class="card-header" style="text-align: center;">Currency of {{rate.base}} Today</h2>
+                <div class="card-body">
 
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    <p class="card-text">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Exchange</th>
+                                    <th scope="col">Units</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for key, value in rate.value.items() %} {% if key=='COP' or key=='EUR' or key=='USD' or key=='YER' or key=='JPY' or key=='KRW' %}
+                                <tr>
+                                    <td scope="row">{{key}}</td>
+                                    <td scope="row">{{value}}</td>
+
+                                </tr>
+                                {% endif %} {% endfor %}
+                            </tbody>
+                        </table>
+                    </p>
+
+                </div>
+            </div>
+
         </div>
         <div class="col-md-8">
             .col-md-4
@@ -30,4 +38,5 @@
     </div>
 
 </div>
+</section>
 {% endblock %}

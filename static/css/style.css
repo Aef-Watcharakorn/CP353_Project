@@ -1,39 +1,80 @@
 /* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+
 html,
 body,
 .view {
-  height: 100%; }
+    height: 100%;
+}
 
 @media (max-width: 740px) {
-  .full-page-intro {
-    height: 1000px; } }
+    .full-page-intro {
+        height: 1000px;
+    }
+}
+
 
 /* Half Page Carousel itself*/
+
 .carousel {
-  height: 50%; }
-  .carousel .carousel-inner {
-    height: 100%; }
-    .carousel .carousel-inner .carousel-item,
-    .carousel .carousel-inner .active {
-      height: 100%; }
+    height: 50%;
+}
+
+.carousel .carousel-inner {
+    height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item,
+.carousel .carousel-inner .active {
+    height: 100%;
+}
+
 
 /* Adjustment for mobile devices*/
+
 @media (max-width: 776px) {
-  .carousel {
-    height: 100%; } }
+    .carousel {
+        height: 100%;
+    }
+}
+
 
 /* Navbar animation */
+
 .navbar {
-  background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.3);
+}
 
 .top-nav-collapse {
-  background-color: #1C2331; }
+    background-color: #1C2331;
+}
+
 
 /* Adding color to the Navbar on mobile */
+
 @media only screen and (max-width: 768px) {
-  .navbar {
-    background-color: #1C2331; } }
+    .navbar {
+        background-color: #1C2331;
+    }
+}
+
 
 /* Footer color for sake of consistency with Navbar */
+
 .page-footer {
-  background-color: #1C2331; }
+    background-color: #1C2331;
+}
+
+.zoom {
+    padding: 20px;
+    background-color: green;
+    transition: transform .2s;
+    /* Animation */
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(0.5);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

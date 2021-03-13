@@ -10,6 +10,7 @@ from flask import Blueprint, render_template
 from flask import request
 from urllib.parse import quote
 from urllib.request import urlopen
+import websocket
 
 
 main = Blueprint('main', __name__)
@@ -28,18 +29,19 @@ def index():
     title = "Home"
     base = request.args.get('base')
     if not base:
-        base = 'EUR'
+        base = 'THB'
     rate = get_rate(base, API_KEY)
     return render_template("index.html", title=title, rate=rate)
 
 @main.route("/news")
 def news():
     title = "News"
+    
     news = request.args.get('news')
     if not news:
         news = 'general'
     general = get_news(news, API_KEY)
-    return render_template("news.html", title=title, general=general, API=API_KEY)
+    return render_template("news.html", title=title, general=general, API=API_KEY, news=news)
 
 @main.route("/stock")
 def stock():
@@ -137,9 +139,8 @@ def get_symbol(symbol, API_KEY):
     symbol = []
     count = parsedSymbol['count']
     for i in range(count):
-        symbol = parsedSymbol['result'][i]['symbol']
+        symbol = parsedSymbol['result'][i]
 
-    ret = {'count' : count,
-            'symbol' : symbol}
+    ret = symbol
 
     return ret
