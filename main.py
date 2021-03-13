@@ -101,33 +101,29 @@ def get_rate(rate, API_KEY):
             }
     return ret
 
+def profile():
+    if request.method == 'GET':
+        title = "Profile Company"
+        comp = request.args.get('word')
+        if not comp:
+            comp = 'TSLA'
+        symbol = get_symbol(comp, API_KEY)
+        company = get_profile(comp, API_KEY)
+        return render_template("profile.html", title=title, comp=comp, company=company, symbol=symbol)
+
 def get_profile(company, API_KEY):
-    query = quote(company)
-
-    urlProfile = OPEN_FINNHUB_PROFILE_URL.format(query, API_KEY)
-
-    dataProfile = urlopen(urlProfile).read()
-    parsedProfile = json.loads(dataProfile)
-
-    #PROFILE DATA
-    profile_name = parsedProfile['name']
-    profile_marketCapitalization = parsedProfile['marketCapitalization']
-    profile_shareOutstanding = parsedProfile['shareOutstanding']
-    profile_currency = parsedProfile['currency']
-    profile_logo = parsedProfile['logo']
-    profile_weburl = parsedProfile['weburl']
-
-    profile = {'name' : profile_name,
-                'market' : profile_marketCapitalization,
-                'share' : profile_shareOutstanding,
-                'currency' : profile_currency,
-                'logo' : profile_logo,
-                'web' : profile_weburl
-                }
-
-
-
-    return profile
+    r = requests.get('https://finnhub.io/api/v1/search?q=BMW&token=c0sit9n48v6tv6b8fm70').json()
+    listt = []
+    for i in range(len(r['result'])):
+        symbol = r['result'][i]['symbol']
+        listt.append({"symbol":symbol})
+    listprofile = list()
+    for x in range(len(listt)):
+        word = listt[x].get("symbol")
+        profile = "https://finnhub.io/api/v1/stock/profile2?symbol={0}&token=c0sit9n48v6tv6b8fm70".format(word)
+        url = requests.request("GET",profile).json()
+        listprofile.append(url)
+    return listprofile
 
 def get_symbol(symbol, API_KEY):
     query = quote(symbol)
