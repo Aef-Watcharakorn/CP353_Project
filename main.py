@@ -3,7 +3,10 @@ import os
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import plotly
+import plotly.graph_objs as go
 import pandas as pd
+import numpy as np
 import flask
 from models import Developer
 from flask import Blueprint, render_template
@@ -12,6 +15,7 @@ from urllib.parse import quote
 from urllib.request import urlopen
 import websocket
 import requests
+from datetime import datetime
 
 
 main = Blueprint('main', __name__)
@@ -47,17 +51,16 @@ def news():
 @main.route("/stock")
 def stock():
     title = "Stock"
-    ticker = 'AAPL'
-    urlCandles = f'https://finnhub.io/api/v1/stock/candle?symbol={ticker}&resolution=1&from=1605543327&to=1605629727&token={API_KEY}'
-    data = request.get(urlCandles).json()
-    df = pd.json_normalize(data)
+    df = pd.read_csv('https://finnhub.io/api/v1/stock/candle?symbol=AAPL&resolution=W&count=500&token={0}&format=csv'.format(API_KEY))
+    fig = go.Figure(data=[go.Candlestick(x=df['t'],
+        open=df['o'],
+        high=df['h'],
+        low=df['l'],
+        close=df['c'])])
+    #return fig.show()
 
-    fig = go.Figure([
-        go.Scatter(
-
-        )
-    ])
-    return render_template("stock.html", title=title)
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template("stock.html", title=title, plot=graphJSON)
 
 @main.route("/profile")
 def profile():
