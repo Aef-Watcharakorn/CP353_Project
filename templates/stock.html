@@ -1,3 +1,12 @@
 {% extends 'base_layout.html' %} {% block body %}
-<div></div>
+<div class="chart" id="Candlestickgraph">
+    <script>
+        var graphs = {
+            {
+                plot | safe
+            }
+        };
+        Plotly.plot('Candlestickgraph', graphs, {});
+    </script>
+</div>
 {% endblock %}
