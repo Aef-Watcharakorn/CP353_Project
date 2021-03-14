@@ -1,51 +1,57 @@
 {% extends 'base_layout.html' %} {% block body %}
-<section class="mt-5 wow fadeIn">
-    <div class="container">
+<diV class="container">
+    <div style="margin-top: 50px;">
         <div class="row">
+            <div class="col-4">
 
-
-            <div class="col-5">
-
-
-                <table class="table table-hover text-nowrap">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">MarketCapitalization</th>
-                            <th scope="col">ShareOutstanding (Currency)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td scope="row">{{company.name}}</td>
-                            <td scope="row">{{company.marketCapitalization}}</td>
-                            <td scope="row">{{company.shareOutstanding}}</td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <h1> {{company.name}} </h1>
-                <p> {{company.market}}</p>
-                <img src="{{company.logo}}">
-            </div>
-
-
-            <div class="col-7">
-                <div class="card text-white bg-primary mb-3" style="max-width: 18rem">
-                    <div class="card-header">Header</div>
+                <div class="card text-center">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{company.logo}}" class="img-fluid" style="margin-top: 30px;" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
+                        <h5 class="card-title">{{company.name}}</h5>
                         <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                            {{company.finnhubIndustry}}
+                            <br>{{company.country}}
+                            <br>tel. {{company.phone}}
                         </p>
+                        <a href="{{company.weburl}}" class="btn btn-primary">Link</a>
                     </div>
                 </div>
+
             </div>
 
+
+            <div class="col-8">
+                <div class="card">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">MarketCapitalization</th>
+                                <th scope="col">ShareOutstanding </th>
+                                <th scope="col">Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td scope="row">{{company.name}}</td>
+                                <td scope="row">{{company.marketCapitalization}}</td>
+                                <td scope="row">{{company.shareOutstanding}}</td>
+                                <td scope="row">{{company.currency}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</section>
+
+</diV>
+
 {% endblock %}
