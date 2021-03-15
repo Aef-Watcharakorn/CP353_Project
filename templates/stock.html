@@ -1,22 +1,54 @@
 {% extends 'base_layout.html' %} {% block body %}
-<div class="container-fluid">
-    <div style="margin-top: 50px;">
-        <div class="row">
-            <div class="col-12">
+<div class="container">
+    <!-- Section APPL -->
+    <section class="mt-5 wow fadeIn">
+        <div class="card" style="padding: 10px">
 
-                <div class="card text-center">
-                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <div id="div-id">
-                            <script>
-                                var graphs = {{ plot | safe}};
-                                Plotly.plot('div-id', graphs, {});
-                            </script>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card w-100 hover-shadow">
+                                <div class="card text-center">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img src="{{company.logo}}" class="img-fluid" style="margin-top: 30px;" />
+                                        <a href="#!">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{company.name}}</h5>
+                                        <p class="card-text">
+                                            {{company.finnhubIndustry}}
+                                            <br>{{company.country}}
+                                            <br>tel. {{company.phone}}
+                                        </p>
+                                        <a href="{{company.weburl}}" class="btn btn-dark">Link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card w-100 hover-shadow">
+                                <div class="card text-center">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <div id="div-id">
+                                            <script>
+                                                var graphs = {{ plot | safe}};
+                                                Plotly.plot('div-id', graphs, {});
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <form style="text-align: center;">
+                        <button type="submit" class="btn btn-secondary btn-rounded" name="company" value="BHTG">Bitcoin</button>
+                        <button type="submit" class="btn btn-warning btn-rounded" name="company" value="TSLA">Tslar</button>
+                        
+                    </form>
         </div>
-    </div>
+    </section>
+    
 </div>
-.
+
 {% endblock %}

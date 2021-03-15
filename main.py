@@ -20,13 +20,11 @@ from datetime import datetime
 
 main = Blueprint('main', __name__)
 
-FINNHUB_API_KEY = os.getenv('FINNHUB_API_KEY')
+FINNHUB_API_KEY = os.environ.get('FINNHUB_API_KEY')
 OPEN_FINNHUB_NEWS_URL = "https://finnhub.io/api/v1/news?category={0}&token={1}"
 OPEN_FINNHUB_RATE_URL = "https://finnhub.io/api/v1/forex/rates?base={0}&token={1}"
 OPEN_FINNHUB_PROFILE_URL = "https://finnhub.io/api/v1/stock/profile2?symbol={0}&token={1}"
 OPEN_FINNHUB_SYMBOL_URL = "https://finnhub.io/api/v1/search?q={0}&token={1}"
-
-API_KEY = 'c0sit9n48v6tv6b8fm70'
 
 
 @main.route("/")
@@ -35,7 +33,7 @@ def index():
     base = request.args.get('base')
     if not base:
         base = 'THB'
-    rate = get_rate(base, API_KEY)
+    rate = get_rate(base, FINNHUB_API_KEY)
     return render_template("index.html", title=title, rate=rate)
 
 @main.route("/news")
@@ -45,13 +43,20 @@ def news():
     news = request.args.get('news')
     if not news:
         news = 'general'
-    general = get_news(news, API_KEY)
-    return render_template("news.html", title=title, general=general, API=API_KEY, news=news)
+    general = get_news(news, FINNHUB_API_KEY)
+    return render_template("news.html", title=title, general=general, API=FINNHUB_API_KEY, news=news)
 
 @main.route("/stock")
 def stock():
     title = "Stock"
-    df = pd.read_csv('https://finnhub.io/api/v1/stock/candle?symbol=AAPL&resolution=W&count=500&token={0}&format=csv'.format(API_KEY))
+
+    #API SYMBOL
+    comp = request.args.get('company')
+    if not comp:
+        comp = 'AAPL'
+    company = get_profile(comp, FINNHUB_API_KEY)
+    
+    df = pd.read_csv('https://finnhub.io/api/v1/stock/candle?symbol={0}&resolution=W&count=500&token={1}&format=csv'.format(comp,FINNHUB_API_KEY))
     fig = go.Figure(data=[go.Candlestick(x=df['t'],
         open=df['o'],
         high=df['h'],
@@ -60,7 +65,7 @@ def stock():
     #return fig.show()
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return render_template("stock.html", title=title, plot=graphJSON)
+    return render_template("stock.html", title=title, plot=graphJSON, company=company)
 
 @main.route("/profile")
 def profile():
@@ -68,8 +73,8 @@ def profile():
     comp = request.args.get('company')
     if not comp:
         comp = 'AAPL'
-    company = get_profile(comp, API_KEY)
-    symbol = get_symbol(comp, API_KEY)
+    company = get_profile(comp, FINNHUB_API_KEY)
+    symbol = get_symbol(comp, FINNHUB_API_KEY)
     return render_template("profile.html", title=title, comp=comp, company=company, symbol=symbol)
 
 
@@ -111,8 +116,8 @@ def profile():
         comp = request.args.get('word')
         if not comp:
             comp = 'TSLA'
-        symbol = get_symbol(comp, API_KEY)
-        company = get_profile(comp, API_KEY)
+        symbol = get_symbol(comp, FINNHUB_API_KEY)
+        company = get_profile(comp, FINNHUB_API_KEY)
         return render_template("profile.html", title=title, comp=comp, company=company, symbol=symbol)
 
 def get_profile(company, API_KEY):
