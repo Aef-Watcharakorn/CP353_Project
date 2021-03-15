@@ -1,12 +1,22 @@
 {% extends 'base_layout.html' %} {% block body %}
-<div class="chart" id="Candlestickgraph">
-    <script>
-        var graphs = {
-            {
-                plot | safe
-            }
-        };
-        Plotly.plot('Candlestickgraph', graphs, {});
-    </script>
+<div class="container-fluid">
+    <div style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card text-center">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <div id="div-id">
+                            <script>
+                                var graphs = {{ plot | safe}};
+                                Plotly.plot('div-id', graphs, {});
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+.
 {% endblock %}
