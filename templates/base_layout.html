@@ -71,9 +71,10 @@
 <body style="background-image: url(https://wallpapercave.com/wp/wp2757874.gif);">
     {% include './includes/_navbar.html' %}
 
-    <div>{% block body %}{% endblock %}</div>
+    <div>{% block body %}{% endblock %}
+        {% include './includes/_footer.html' %}
+    </div>
 
-    {% include './includes/_footer.html' %}
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
