@@ -15,7 +15,8 @@
 
         <!--First slide-->
         <div class="carousel-item active">
-            <div class="view" style="background-image: url('https://www.lantares.com/wp-content/uploads/2020/05/apps.6125.13831681629134450.659f4e50-c403-4263-b46a-6d4366639fa9.jpg'); background-repeat: no-repeat; background-size: cover;">
+            <div class="view"
+                style="background-image: url('https://www.saxoptiontradez.com/home/images/7.jpg'); background-repeat: no-repeat; background-size: cover;">
 
                 <!-- Mask & flexbox options-->
                 <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -31,12 +32,11 @@
                         </p>
 
                         <p class="mb-4 d-none d-md-block">
-                            <strong>Foreign Exchange (forex or FX) is the trading of one currency for another. For example, one can swap the U.S. dollar for the euro.</strong>
+                            <strong>Foreign Exchange (forex or FX) is the trading of one currency for another. For
+                                example, one can swap the U.S. dollar for the euro.</strong>
                         </p>
 
-                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start free tutorial
-            <i class="fas fa-graduation-cap ml-2"></i>
-          </a>
+                        
                     </div>
                     <!-- Content -->
 
@@ -49,7 +49,8 @@
 
         <!--Second slide-->
         <div class="carousel-item">
-            <div class="view" style="background-image: url('https://store-images.s-microsoft.com/image/apps.19375.14468716425351618.a84bc665-746a-416e-998c-237da5220b60.5c15abe6-1805-4195-ac5b-c91b42bb9548?mode=scale&q=90&h=1080&w=1920'); background-repeat: no-repeat; background-size: cover;">
+            <div class="view"
+                style="background-image: url('https://www.gettradeway.net/imgContent/Cryptocurrency_history4.jpg'); background-repeat: no-repeat; background-size: cover;">
 
                 <!-- Mask & flexbox options-->
                 <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -65,12 +66,13 @@
                         </p>
 
                         <p class="mb-4 d-none d-md-block">
-                            <strong>Cryptocurrency is a form of payment that can be exchanged online for goods and services. Many companies have issued their own currencies, often called tokens, and these can be traded specifically for the good or service that the company provides.</strong>
+                            <strong>Cryptocurrency is a form of payment that can be exchanged online for goods and
+                                services. Many companies have issued their own currencies, often called tokens, and
+                                these can be traded specifically for the good or service that the company
+                                provides.</strong>
                         </p>
 
-                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start free tutorial
-            <i class="fas fa-graduation-cap ml-2"></i>
-          </a>
+                        
                     </div>
                     <!-- Content -->
 
@@ -83,7 +85,8 @@
 
         <!--Third slide-->
         <div class="carousel-item">
-            <div class="view" style="background-image: url('https://www.gainedgeconsulting.com/wp-content/uploads/2019/07/merger.jpg'); background-repeat: no-repeat; background-size: cover;">
+            <div class="view"
+                style="background-image: url('https://images6.alphacoders.com/912/thumb-1920-912465.jpg'); background-repeat: no-repeat; background-size: cover;">
 
                 <!-- Mask & flexbox options-->
                 <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -91,21 +94,19 @@
                     <!-- Content -->
                     <div class="text-center white-text mx-5 wow fadeIn">
                         <h1 class="mb-4">
-                            <strong>Learn Bootstrap 4 with MDB</strong>
+                            <strong>Bitcoin?</strong>
                         </h1>
 
                         <p>
-                            <strong>Best & free guide of responsive web design</strong>
+                            <strong>Bitcoin is a type of cryptocurrency.</strong>
                         </p>
 
                         <p class="mb-4 d-none d-md-block">
-                            <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-              available. Create your own, stunning website.</strong>
+                            <strong>Bitcoin is a digital currency that was created in January 2009. It follows the ideas
+                                set out in a whitepaper by the mysterious and pseudonymous Satoshi Nakamoto.</strong>
                         </p>
 
-                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start free tutorial
-            <i class="fas fa-graduation-cap ml-2"></i>
-          </a>
+                        
                     </div>
                     <!-- Content -->
 
@@ -133,44 +134,261 @@
 </div>
 <!--/.Carousel Wrapper-->
 
-<section class="mt-5 wow fadeIn"></section>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <h2 style="text-align: center; margin-top: 30px;">Currency of {{rate.base}} Today</h2>
-                <div class="card-body">
+<section class="mt-5 wow fadeIn">
+    <div class="container">
+        <div class="card touch" style="padding: 30px; border-radius: 1rem;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="padding: 20px; margin-top: 15px;">
+                        <h2 style="text-align: center; margin-top: 25px; font-family: Arial, Helvetica, sans-serif;">Currency of {{rate.base}} Today</h2>
+                        <div class="card-body">
 
-                    <p class="card-text">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Exchange</th>
-                                    <th scope="col">Units</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for key, value in rate.value.items() %} {% if key=='COP' or key=='EUR' or key=='USD' or key=='YER' or key=='JPY' or key=='KRW' %}
-                                <tr>
-                                    <td scope="row">{{key}}</td>
-                                    <td scope="row">{{value}}</td>
+                            <p class="card-text">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Exchange</th>
+                                        <th scope="col">Units</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for key, value in rate.value.items() %} {% if key=='COP' or key=='EUR' or
+                                    key=='USD'
+                                    or key=='YER' or key=='JPY' or key=='KRW' %}
+                                    <tr>
+                                        <td scope="row">{{key}}</td>
+                                        <td scope="row">{{value}}</td>
 
-                                </tr>
-                                {% endif %} {% endfor %}
-                            </tbody>
-                        </table>
-                    </p>
+                                    </tr>
+                                    {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                            </p>
 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card" style="padding: 20px;">
+
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <h5 class="card-title">Trading</h5>
+                                <p class="card-text">
+                                    Trade is a basic economic concept involving the buying and selling of goods and
+                                    services, with compensation paid by a buyer to a seller, or the exchange of
+                                    goods or services between parties. Trade can take place within an economy
+                                    between producers and consumers.
+                                </p>
+
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://media4.giphy.com/media/lTXepVrUf7XBoBGgzW/giphy.gif" alt="..."
+                                    class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="padding: 20px; margin-top: 20px;">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <h5 class="card-title">Stock</h5>
+                                <p class="card-text">
+                                    A stock (also known as equity) is a security that represents the ownership of a
+                                    fraction
+                                    of a corporation. This entitles the owner of the stock to a proportion of the
+                                    corporation's assets and profits equal to how much stock they own. Units of stock
+                                    are
+                                    called "shares."
+                                </p>
+
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://bookmap.com/wp-content/uploads/2018/10/1.gif" alt="..."
+                                    class="img-fluid" style="width: 259px; height: 259px;" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
-        <div class="col-md-8">
-            .col-md-4
+    </div>
+</section>
 
+<section class="mt-5 wow fadeIn">
+    <div class="container">
+        <div class="card touch" style="padding: 30px; border-radius: 1rem;">
+            <div class="card-header">
+                <h1 style="font-family: Arial, Helvetica, sans-serif; text-align: center;"> Crypto VS Forex</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="padding: 20px;">
+                        <img src="https://image.cnbcfm.com/api/v1/image/106837526-1612866638564-gettyimages-1294702554-yn_cryptoimages_016.jpeg?v=1613573501&w=678&h=381"
+                            class="card-img-top" alt="" style="border-radius: 0.5rem; width: 566px; height: 384px;" />
+                        <div class="card-body">
+                            <h5 class="card-title">Cryptocurrency</h5>
+                            <p class="card-text">
+                                A cryptocurrency is a digital or virtual currency that is secured by cryptography, which
+                                makes it nearly impossible to counterfeit or double-spend. Many cryptocurrencies are
+                                decentralized networks based on blockchain technology—a distributed ledger enforced by a
+                                disparate network of computers. A defining feature of cryptocurrencies is that they are
+                                generally not issued by any central authority, rendering them theoretically immune to
+                                government interference or manipulation.
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    <a target="_blank" href="https://www.investopedia.com/terms/c/cryptocurrency.asp"
+                                        class="btn btn-indigo btn-md" style="color: white;">Read More
+                                        <i class="fas fa-book-open"></i>
+                                    </a>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="padding: 20px;">
+                        <img src="https://499ioen9wh92k2blb3elevg9-wpengine.netdna-ssl.com/wp-content/uploads/2020/08/bigstock-Working-Business-Man-Team-Of-356423666.jpg"
+                            class="card-img-top" alt="" style="border-radius: 0.5rem;" />
+                        <div class="card-body">
+                            <h5 class="card-title">Forex</h5>
+                            <p class="card-text">
+                                Foreign Exchange (forex or FX) is the trading of one currency for another. For example,
+                                one can swap the U.S. dollar for the euro. Foreign exchange transactions can take place
+                                on the foreign exchange market, also known as the forex market.
+
+                                The forex market is the largest, most liquid market in the world, with trillions of
+                                dollars changing hands every day.1﻿ There is no centralized location. Rather, the forex
+                                market is an electronic network of banks, brokers, institutions, and individual traders
+                                (mostly trading through brokers or banks).
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    <a target="_blank" href="https://www.investopedia.com/terms/f/foreign-exchange.asp"
+                                        class="btn btn-indigo btn-md" style="color: white;">Read More
+                                        <i class="fas fa-book-open"></i>
+                                    </a>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mt-5 wow fadeIn">
+    <div class="container">
+        <div class="card touch" style="padding: 30px; border-radius: 1rem;">
+            <div>
+                <h1 style="font-family: Arial, Helvetica, sans-serif; text-align: center;"> Most Famous Trader</h1>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-md-3">
+                    <div class="center">
+                        <div class="property-card">
+                            <a href="#">
+                                <div class="property-elon">
+                                    <div class="property-image-title">
+                                        <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="property-description">
+                                <h5> Elon Musk </h5>
+                                <h6>CEO of Tesla Motors
+                                </h6>
+                                <p> HE bought $1.5 billion worth of bitcoin. </p>
+                            </div>
+                            <a href="#">
+                                <div class="property-social-icons">
+                                    <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="center">
+                        <div class="property-card">
+                            <a href="#">
+                                <div class="property-jesse">
+                                    <div class="property-image-title">
+                                        <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="property-description">
+                                <h5> Jesse Livermore </h5>
+                                <h6>American stock trader
+                                </h6>
+                                <p> greatest trader who ever lived </p>
+                            </div>
+                            <a href="#">
+                                <div class="property-social-icons">
+                                    <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="center">
+                        <div class="property-card">
+                            <a href="#">
+                                <div class="property-sarath">
+                                    <div class="property-image-title">
+                                        <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="property-description">
+                                <h5> Sarath Ratanavadi </h5>
+                                <h6>Founder Gulf Energy Development
+                                </h6>
+                                <p> One of the most famous traders in Thailand. </p>
+                            </div>
+                            <a href="#">
+                                <div class="property-social-icons">
+                                    <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="center">
+                        <div class="property-card">
+                            <a href="#">
+                                <div class="property-george">
+                                    <div class="property-image-title">
+                                        <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="property-description">
+                                <h5> George Soros </h5>
+                                <h6>Investor
+                                </h6>
+                                <p> He is committed to tackling the world’s most intractable problems to benefit all.
+                                </p>
+                            </div>
+                            <a href="#">
+                                <div class="property-social-icons">
+                                    <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-</div>
 </section>
 {% endblock %}

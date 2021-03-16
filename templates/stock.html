@@ -1,12 +1,24 @@
 {% extends 'base_layout.html' %} {% block body %}
 <div class="container">
+    <section class="mt-5 wow fadeIn">
+        <div class="card" style="padding: 10px; border-radius: 1rem;">
+            
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+                  aria-describedby="button-addon2" />
+                <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                  Button
+                </button>
+              </div>
+        </div>
+    </section>
+
     <!-- Section APPL -->
     <section class="mt-5 wow fadeIn">
-        <div class="card" style="padding: 10px">
-
+        <div class="card  mb-3" style="padding: 10px border-radius: 1rem;">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card w-100 hover-shadow">
+                            <div class="card w-100 hover-shadow" style="margin-top: 50px;">
                                 <div class="card text-center">
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img src="{{company.logo}}" class="img-fluid" style="margin-top: 30px;" />
@@ -21,7 +33,7 @@
                                             <br>{{company.country}}
                                             <br>tel. {{company.phone}}
                                         </p>
-                                        <a href="{{company.weburl}}" class="btn btn-dark">Link</a>
+                                        <a href="{{company.weburl}}" class="btn btn-dark">Website</a>
                                     </div>
                                 </div>
                             </div>
@@ -41,13 +53,29 @@
                             </div>
                         </div>
                     </div>
-                    <form style="text-align: center;">
-                        <button type="submit" class="btn btn-secondary btn-rounded" name="company" value="BHTG">Bitcoin</button>
-                        <button type="submit" class="btn btn-warning btn-rounded" name="company" value="TSLA">Tslar</button>
-                        
-                    </form>
         </div>
     </section>
+
+    <section class="mt-5 wow fadeIn">
+        <div class="card mb-3" style="padding: 10px; border-radius: 1rem;">
+            <a href="" style="margin-top: 10px; margin-bottom: 10px; text-align: center; color: black;">
+                <h3> #Recomend Stock </h3>
+            </a>
+
+            <form style="text-align: center;">
+                <button type="submit" class="btn btn-secondary btn-rounded" name="company" value="IRBT">IROBOT CORP</button>
+                <button type="submit" class="btn btn-warning btn-rounded" name="company" value="TSLA">TESLA INC</button>
+                <button type="submit" class="btn btn-primary btn-rounded" name="company" value="ETSY">ETSY INC</button>
+                <button type="submit" class="btn btn-success btn-rounded" name="company" value="IBM">INTL BUSINESS MACHINES CORP</button>
+                <button type="submit" class="btn btn-danger btn-rounded" name="company" value="TDOC">TELADOC HEALTH INC</button>
+                <button type="submit" class="btn btn-info btn-rounded" name="company" value="LGL">LGL GROUP INC/THE</button>
+                <button type="submit" class="btn btn-light btn-rounded" name="company" value="PINS">PINTEREST INC- CLASS A</button>
+                <button type="submit" class="btn btn-dark btn-rounded" name="company" value="AMZN">AMAZON.COM INC</button>
+                
+            </form>
+        </div>
+    </section>
+
     
 </div>
 

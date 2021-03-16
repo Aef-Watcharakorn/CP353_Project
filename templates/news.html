@@ -3,8 +3,16 @@
 <main>
     <section class="mt-5 wow fadeIn">
         <div class="container">
-            <h1 style="text-align: center; color:white"> {{news}} News </h1>
 
+            {% if news == 'general' %}
+            <h1 style="text-align: center; color:white"> General News </h1>
+            {% elif news == 'forex' %}
+            <h1 style="text-align: center; color:white"> Forex News </h1>
+            {% elif news == 'crypto' %}
+            <h1 style="text-align: center; color:white"> Cryptocurrency News </h1>
+            {% else %}
+            <h1 style="text-align: center; color:white"> Merger News </h1>
+            {% endif %}
             <form style="text-align: center;">
                 <button type="submit" class="btn btn-secondary btn-rounded" name="news" value="forex">Forex</button>
                 <button type="submit" class="btn btn-warning btn-rounded" name="news" value="crypto">Crypto</button>
@@ -15,12 +23,12 @@
 
             <!--Section: Main info-->
             <section class="mt-5 wow fadeIn">
-                <div class="card" style="padding: 20px">
+                <div class="card" style="padding: 20px; border-radius: 1rem;">
                     <div class="row">
 
                         {% for news in general %}
                         <div class="col-md-4 mb-4">
-                            <div class="card w-100 hover-shadow">
+                            <div class="card w-100 hover-shadow touch">
                                 <img src="{{news.image}}" class="img-fluid z-depth-1-half" alt=""
                                     style="width: 416px; height: 277px;" src="{{news.url}}">
                                 <div class="card-body">
