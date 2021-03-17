@@ -20,6 +20,6 @@ Set Flask
 
 
 # Developer
+- Chayada Pansiri
 - Porntavee Kachawuttakorn
 - Watcharakorn Choomueang
-- Chayada Pansiri
