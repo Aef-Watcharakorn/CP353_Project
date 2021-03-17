@@ -9,7 +9,7 @@ You must install all package. you can use command pip install.
 
 # Step 2
 Set Flask
-  - If you use WINDOW
+  - If you use WINDOW (Powershell)
       - SET FLASK_APP="main.py"
       - $env:FLASK_APP="main.py"
       - flask run
