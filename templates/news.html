@@ -14,10 +14,10 @@
             <h1 style="text-align: center; color:white"> Merger News </h1>
             {% endif %}
             <form style="text-align: center;">
-                <button type="submit" class="btn btn-secondary btn-rounded" name="news" value="forex">Forex</button>
-                <button type="submit" class="btn btn-warning btn-rounded" name="news" value="crypto">Crypto</button>
-                <button type="submit" class="btn btn-info btn-rounded" name="news" value="merger">Merger</button>
-                <button type="submit" class="btn btn-success btn-rounded" name="news" value="general">General</button>
+                <button type="submit" class="btn btn-outline-secondary" name="news" value="forex">Forex</button>
+                <button type="submit" class="btn btn-outline-warning" name="news" value="crypto">Crypto</button>
+                <button type="submit" class="btn btn-outline-info" name="news" value="merger">Merger</button>
+                <button type="submit" class="btn btn-outline-success" name="news" value="general">General</button>
             </form>
             <hr class="my-5">
 
@@ -29,20 +29,18 @@
                         {% for news in general %}
                         <div class="col-md-4 mb-4">
                             <div class="card w-100 hover-shadow touch">
-                                <img src="{{news.image}}" class="img-fluid z-depth-1-half" alt=""
-                                    style="width: 416px; height: 277px;" src="{{news.url}}">
+                                <img src="{{news.image}}" class="img-fluid z-depth-1-half" alt="" style="width: 416px; height: 277px;" src="{{news.url}}">
                                 <div class="card-body">
                                     <p class="card-text">
-                                    <h4 class="" style="font-weight: bold;">{{news.headline}} </h4>
-                                    <p>{{news.source}} </p>
+                                        <h4 class="" style="font-weight: bold;">{{news.headline}} </h4>
+                                        <p>{{news.source}} </p>
 
                                         <hr>
 
                                         <p class="text">{{news.summary}} </p>
 
-                                    <!-- CTA -->
-                                    <a target="_blank" href="{{news.url}}" class="btn btn-indigo btn-md"
-                                        style="color: white;">Read More
+                                        <!-- CTA -->
+                                        <a target="_blank" href="{{news.url}}" class="btn btn-indigo btn-md" style="color: white;">Read More
                                         <i class="fas fa-book-open"></i>
                                     </a>
                                     </p>

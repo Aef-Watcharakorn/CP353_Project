@@ -28,15 +28,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 
     <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+        
         html,
         body,
         header,
         .carousel {
             height: 60vh;
         }
-
+        
         @media (max-width: 740px) {
-
             html,
             body,
             header,
@@ -44,9 +48,8 @@
                 height: 100vh;
             }
         }
-
+        
         @media (min-width: 800px) and (max-width: 850px) {
-
             html,
             body,
             header,
@@ -54,23 +57,23 @@
                 height: 100vh;
             }
         }
-
+        
         @media (min-width: 800px) and (max-width: 850px) {
             .navbar:not(.top-nav-collapse) {
                 background: #1c2331 !important;
             }
         }
-
+        
         .touch {
             margin-top: 25px;
             margin-bottom: 25px;
         }
-
+        
         .touch .card {
             border: none;
             border-radius: 1rem;
         }
-
+        
         @media (min-width: 992px) {
             .touch .card:hover {
                 margin-top: -.25rem;
@@ -78,9 +81,8 @@
                 box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
                 transition: .2s;
             }
-
         }
-
+        
         .back-to-top {
             position: fixed;
             right: 1%;
@@ -100,17 +102,17 @@
             transition: all 0.25s ease-in-out;
             background-color: #858585;
         }
-
+        
         .back-to-top:hover,
         .back-to-top:focus {
             opacity: 1;
             text-decoration: none;
         }
-
+        
         .back-to-top:focus {
             outline: thin dotted;
         }
-
+        
         .back-to-top::before,
         .back-to-top::after {
             content: "";
@@ -121,31 +123,31 @@
             border: 20px solid transparent;
             border-top: 0;
         }
-
+        
         .back-to-top::before {
             top: -20px;
             z-index: 4;
             border-bottom: 20px solid #858585;
         }
-
+        
         .back-to-top::after {
             bottom: 0;
             z-index: 5;
             border-bottom: 20px solid #505050;
         }
-
+        
         .back-to-top:hover,
         .back-to-top:focus {
             height: 40px;
             color: #212223;
         }
-
+        
         .show-back-to-top {
             display: block;
             bottom: 1.25%;
             visibility: visible;
         }
-
+        
         .property-card {
             height: 18em;
             width: 14em;
@@ -165,7 +167,7 @@
             -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
             box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
         }
-
+        
         .property-elon {
             height: 6em;
             width: 14em;
@@ -179,7 +181,7 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-
+        
         .property-jesse {
             height: 6em;
             width: 14em;
@@ -193,7 +195,7 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-
+        
         .property-sarath {
             height: 6em;
             width: 14em;
@@ -207,7 +209,7 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-
+        
         .property-george {
             height: 6em;
             width: 14em;
@@ -221,11 +223,8 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-
-
-
         /* Bottom Card Section */
-
+        
         .property-description {
             background-color: #FAFAFC;
             height: 12em;
@@ -238,9 +237,8 @@
             padding: 0.5em 1em;
             text-align: center;
         }
-
         /* Social Icons */
-
+        
         .property-social-icons {
             width: 1em;
             height: 1em;
@@ -252,35 +250,33 @@
             -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
             transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
-
         /* Property Cards Hover States */
-
+        
         .property-card:hover .property-description {
             height: 0em;
             padding: 0px 1em;
         }
-
+        
         .property-card:hover .property-elon {
             height: 18em;
         }
-
+        
         .property-card:hover .property-jesse {
             height: 18em;
-
         }
-
+        
         .property-card:hover .property-sarath {
             height: 18em;
         }
-
+        
         .property-card:hover .property-george {
             height: 18em;
         }
-
+        
         .property-card:hover .property-social-icons {
             background-color: white;
         }
-
+        
         .property-card:hover .property-social-icons:hover {
             background-color: blue;
             cursor: pointer;
@@ -293,8 +289,7 @@
 
 
     <div>
-        <a href="#content" class="back-to-top">Top</a>
-        {% block body %}{% endblock %}
+        <a href="#content" class="back-to-top">Top</a> {% block body %}{% endblock %}
     </div>
 
     {% include './includes/_footer.html' %}
@@ -315,7 +310,7 @@
     </script>
     <script>
         // Check distance to top and display back-to-top.
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             if ($(this).scrollTop() > 800) {
                 $('.back-to-top').addClass('show-back-to-top');
             } else {
@@ -324,8 +319,10 @@
         });
 
         // Click event to scroll to top.
-        $('.back-to-top').click(function () {
-            $('html, body').animate({ scrollTop: 0 }, 800);
+        $('.back-to-top').click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 800);
             return false;
         });
     </script>
