@@ -10,13 +10,13 @@ You must install all package. you can use command pip install.
 # Step 2
 Set Flask
   - If you use WINDOW
-      1) SET FLASK_APP="main.py"
-      2) $env:FLASK_APP="main.py"
-      3) flask run
+      - SET FLASK_APP="main.py"
+      - $env:FLASK_APP="main.py"
+      - flask run
    
    - If you sue MAC
-      1) Export FLASK_APP="main.py"
-      2) flask run
+      - Export FLASK_APP="main.py"
+      - flask run
 
 
 # Developer
