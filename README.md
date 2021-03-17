@@ -1,4 +1,3 @@
-# README
 # Web Service with Flask Python. Use FINNHUB API
 
 # Step 1
@@ -21,6 +20,6 @@ Set Flask
 
 
 # Developer
-Porntavee Kachawuttakorn
-Watcharakorn Choomueang
-Chayada Pansiri
+- Porntavee Kachawuttakorn
+- Watcharakorn Choomueang
+- Chayada Pansiri
