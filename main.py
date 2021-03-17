@@ -13,9 +13,9 @@ from flask import Blueprint, render_template
 from flask import request
 from urllib.parse import quote
 from urllib.request import urlopen
-import websocket
 import requests
 from datetime import datetime
+import time
 
 
 main = Blueprint('main', __name__)
@@ -57,12 +57,17 @@ def stock():
     company = get_profile(comp, FINNHUB_API_KEY)
     
     df = pd.read_csv('https://finnhub.io/api/v1/stock/candle?symbol={0}&resolution=W&count=500&token={1}&format=csv'.format(comp,FINNHUB_API_KEY))
-    fig = go.Figure(data=[go.Candlestick(x=df['t'],
-        open=df['o'],
-        high=df['h'],
-        low=df['l'],
-        close=df['c'])])
-    #return fig.show()
+    w = list()
+    for i in range(len(df)):
+        x = int(df['t'][i])
+        local_time = time.gmtime(x)
+        w.append(time.strftime("%Y-%m-%d %H:%M:%S", local_time)) 
+    fig = go.Figure(data=[go.Candlestick(x=w,
+    open=df['o'],
+    high=df['h'],
+    low=df['l'],
+    close=df['c'])])
+
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("stock.html", title=title, plot=graphJSON, company=company)

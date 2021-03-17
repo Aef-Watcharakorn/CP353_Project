@@ -1,21 +1,31 @@
 {% extends 'base_layout.html' %} {% block body %}
 <div class="container">
+
     <section class="mt-5 wow fadeIn">
         <div class="card" style="padding: 10px; border-radius: 1rem;">
-            
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-                  aria-describedby="button-addon2" />
-                <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                  Button
-                </button>
-              </div>
+            <form method="POST" action="/stock">
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-outline">
+                            <input type="text" id="formControlDefault" class="form-control" style="width: 100%;" name="company"/>
+                            <label class="form-label" for="formControlDefault">Search your company</label>
+                            
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-dark btn-floating">
+                            <i class="fas fa-search-dollar"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
     <!-- Section APPL -->
     <section class="mt-5 wow fadeIn">
-        <div class="card  mb-3" style="padding: 10px border-radius: 1rem;">
+        <div class="card  mb-3" style="padding: 20px; border-radius: 1rem;">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card w-100 hover-shadow" style="margin-top: 50px;">
@@ -71,12 +81,18 @@
                 <button type="submit" class="btn btn-info btn-rounded" name="company" value="LGL">LGL GROUP INC/THE</button>
                 <button type="submit" class="btn btn-light btn-rounded" name="company" value="PINS">PINTEREST INC- CLASS A</button>
                 <button type="submit" class="btn btn-dark btn-rounded" name="company" value="AMZN">AMAZON.COM INC</button>
+                <button type="submit" class="btn btn-rounded" style="background-color: #ff4500; color: white;" name="company" value="VLKAF">VOLKSWAGEN AG</button>
+                <button type="submit" class="btn btn-rounded" style="background-color: #3b5998; color: white;" name="company" value="MSFT">MICROSOFT CORP</button>
+                <button type="submit" class="btn btn-rounded" style="background-color: #c61118; color: white;" name="company" value="018260.KS">SAMSUNG SDS CO LTD</button>
+                <button type="submit" class="btn btn-rounded" style="background-color: #481449; color: white;" name="company" value="NFLX">NETFLIX INC</button>
+                <button type="submit" class="btn btn-rounded" style="background-color: #333333; color: white;" name="company" value="ORCL">ORACLE CORP</button>
+                <button type="submit" class="btn btn-rounded" style="background-color: #25d366; color: white;" name="company" value="SBUX">STARBUCKS CORP</button>
+                <button type="submit" class="btn btn-rounded" style="background-color: #ac2bac; color: white;" name="company" value="AUDVF">AUDI AG</button>
                 
             </form>
         </div>
     </section>
 
-    
 </div>
 
 {% endblock %}
