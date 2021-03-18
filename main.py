@@ -46,12 +46,12 @@ def news():
     general = get_news(news, FINNHUB_API_KEY)
     return render_template("news.html", title=title, general=general, API=FINNHUB_API_KEY, news=news)
 
-@main.route("/stock")
+@main.route("/stock",methods=["GET","POST"])
 def stock():
     title = "Stock"
 
     #API SYMBOL
-    comp = request.args.get('company')
+    comp= request.form.get("company")
     if not comp:
         comp = 'AAPL'
     company = get_profile(comp, FINNHUB_API_KEY)
