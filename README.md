@@ -8,6 +8,14 @@ You must install all package. you can use command pip install.
   4) pip install dash
 
 # Step 2
+You must use API. If you haven't Finnhub API you can register this website --> https://finnhub.io/
+If you have API you must follow 
+  - open Environment Variables.
+  - Click <b>News<b> on User variables for user.
+  - Variable name = FINNHUB_API_KEY
+  - Variable value = YOUR API KEY
+
+# Step 3
 Set Flask
   - If you use WINDOW (Powershell)
       - SET FLASK_APP="main.py"
