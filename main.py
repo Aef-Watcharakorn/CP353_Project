@@ -51,7 +51,7 @@ def stock():
     title = "Stock"
 
     #API SYMBOL
-    comp= request.form.get("company")
+    comp = request.args.get('company')
     if not comp:
         comp = 'AAPL'
     company = get_profile(comp, FINNHUB_API_KEY)
