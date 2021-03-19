@@ -25,7 +25,6 @@ OPEN_FINNHUB_NEWS_URL = "https://finnhub.io/api/v1/news?category={0}&token={1}"
 OPEN_FINNHUB_RATE_URL = "https://finnhub.io/api/v1/forex/rates?base={0}&token={1}"
 OPEN_FINNHUB_PROFILE_URL = "https://finnhub.io/api/v1/stock/profile2?symbol={0}&token={1}"
 OPEN_FINNHUB_SYMBOL_URL = "https://finnhub.io/api/v1/search?q={0}&token={1}"
-#API_SHOW = 'c0sit9n48v6tv6b8fm70'
 
 @main.route("/")
 def index():
